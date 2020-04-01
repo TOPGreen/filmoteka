@@ -34,4 +34,21 @@ export class FirebaseService {
     return this.firestore.collection(collection).doc(filmId).delete();
   }
 
+  public async getDocumentById(collection, id) {
+    let doc;
+    let data = await new Promise<any>((resolve, reject) => {
+      this.firestore.collection(collection).snapshotChanges()
+        .subscribe(snapshots => {
+          resolve(snapshots)
+        })
+    });
+
+    data.forEach(el => {
+      if (el.payload.doc.id === id) {
+        doc = el
+      }
+    });
+
+    return doc;
+  }
 }

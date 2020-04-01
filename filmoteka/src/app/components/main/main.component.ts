@@ -22,12 +22,7 @@ export class MainComponent implements OnInit {
     this.films = await this.firebase.getData("films")
   }
 
-  public async addFilm() {
-    await this.firebase.postData("films", {
-      title: this.filmTitle
-    })
-    this.ngOnInit();
-  }
+ 
 
 
 }

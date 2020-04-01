@@ -25,10 +25,11 @@ export class FilmCardComponent implements OnInit {
     this.refresh.emit({});
   }
 
-  public editFilm() {
-    this.firebase.updateData("films", this.film.payload.doc.id, { title: "Interstellar" });
-    this.refresh.emit({});
-  }
+  // public editFilm() {
+    // this.firebase.updateData("films", this.film.payload.doc.id, { title: "Interstellar" });
+    // console.log(this.firebase.getDocumentById("films", this.film.payload.doc.id))
+    // this.refresh.emit({});
+  // }
 
 
 }

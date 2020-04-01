@@ -1,0 +1,12 @@
+<p>{{id}}</p>
+
+<form id="regForm" [formGroup]="filmForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" class="form-control" id="filmTItle"
+      placeholder="Film Title" formControlName="title">
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="addFilm()">Add Film</button>
+  <button type="submit" class="btn btn-primary" (click)="updateFilm()">Update Film</button>
+</form>

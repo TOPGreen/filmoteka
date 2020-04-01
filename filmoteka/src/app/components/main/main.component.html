@@ -1,10 +1,6 @@
 <div class="row">
   <div class="col-3" *ngFor="let film of films">
-    <!-- {{film.title}}
-    <button id="deleteFilm" (click)="deleteFilm(film.id)">Удалить</button> -->
     <app-film-card [film]="film" (refresh) ="ngOnInit()"></app-film-card>
   </div>
 </div>
-<input type="text" name="" id="filmTitle" [(ngModel)]="filmTitle">
-<button id="addFilm" (click)="addFilm()">Добавить фильм</button>
 

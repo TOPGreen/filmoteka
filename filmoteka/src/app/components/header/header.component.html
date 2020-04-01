@@ -8,9 +8,9 @@
         routerLinkActive="active">Orders</a>
       <a *ngIf="userService.user.role>0" class="nav-item nav-link" [routerLink]="'/journal'"
         routerLinkActive="active">Journal</a>
-      <a *ngIf="userService.user.role>0" class="nav-item nav-link" [routerLink]="'/addFilm'"
+      <!-- <a *ngIf="userService.user.role>0" class="nav-item nav-link" [routerLink]="'/editFilm'"
         routerLinkActive="active">Add
-        Film</a>
+        Film</a> -->
       <a *ngIf="userService.user.role>1" class="nav-item nav-link" [routerLink]="'/addfilmRequests'"
         routerLinkActive="active">Add
         Requests</a>

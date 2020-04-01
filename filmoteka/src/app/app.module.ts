@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilmCardComponent } from './components/film-card/film-card.component';
+import { EditFilmComponent } from './components/edit-film/edit-film.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
     RegisterComponent,
     LoginComponent,
     FilmCardComponent,
+    EditFilmComponent,
   ],
   imports: [
     BrowserModule,

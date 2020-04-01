@@ -5,8 +5,10 @@
 
 3. Последовательно прописываем:
    
-    cd filmoteka
-    npm i
+```
+cd filmoteka
+npm i
+```
 
 ### Запуск
 

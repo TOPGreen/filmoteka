@@ -1,9 +1,9 @@
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="#" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{film.payload.doc.data().title}}</h5>
+    <h5 class="card-title">{{film.title}}</h5>
     <p class="card-text">Info</p>
     <button *ngIf="user.role===2" class="btn btn-danger" id="deleteFilm" (click)="deleteFilm()">Удалить</button>
-    <a *ngIf="user.role===2" class="btn btn-primary" id="editFilm" [routerLink]="['/edit_film', film.payload.doc.id]">Изменить</a>
+    <a *ngIf="user.role===2" class="btn btn-primary" id="editFilm" [routerLink]="['/edit_film', film.id]">Изменить</a>
   </div>
 </div>

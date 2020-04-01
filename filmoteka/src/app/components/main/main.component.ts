@@ -22,7 +22,4 @@ export class MainComponent implements OnInit {
     this.films = await this.firebase.getData("films")
   }
 
- 
-
-
 }

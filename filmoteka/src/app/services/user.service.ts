@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
+  userId;
+
   public user: User = {
     login: null,
     password: null,

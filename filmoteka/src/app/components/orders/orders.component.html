@@ -1,0 +1,14 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th>Films</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders">
+      <td>{{order.id}}</td>
+      <td><span *ngFor="let film of order.films">{{film.title}}, </span></td>
+    </tr>
+  </tbody>
+</table>

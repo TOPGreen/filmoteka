@@ -7,6 +7,6 @@
       placeholder="Film Title" formControlName="title">
   </div>
 
-  <button type="submit" class="btn btn-primary" (click)="addFilm()">Add Film</button>
-  <button type="submit" class="btn btn-primary" (click)="updateFilm()">Update Film</button>
+  <button *ngIf="id==='-1'" type="submit" class="btn btn-primary" (click)="addFilm()">Add Film</button>
+  <button *ngIf="id!=='-1'" type="submit" class="btn btn-primary" (click)="updateFilm()">Update Film</button>
 </form>

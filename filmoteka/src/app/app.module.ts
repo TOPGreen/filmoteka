@@ -16,6 +16,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { FilmCardComponent } from './components/film-card/film-card.component';
 import { EditFilmComponent } from './components/edit-film/edit-film.component';
+import { JournalComponent } from './components/journal/journal.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { EditFilmComponent } from './components/edit-film/edit-film.component';
     LoginComponent,
     FilmCardComponent,
     EditFilmComponent,
+    JournalComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

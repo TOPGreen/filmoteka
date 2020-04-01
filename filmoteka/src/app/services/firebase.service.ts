@@ -6,9 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class FirebaseService {
-  films;
+
   constructor(private firestore: AngularFirestore) {
-    // this.films = firestore.collection('films').snapshotChanges();
   }
 
   public postData(collection, data) {
@@ -19,8 +18,8 @@ export class FirebaseService {
     return new Promise<any>((resolve, reject) => {
       this.firestore.collection(collection).snapshotChanges()
         .subscribe(snapshots => {
-          resolve(snapshots)
-        })
+          resolve(snapshots.map((el: any) => Object.assign(el.payload.doc.data(), { id: el.payload.doc.id })))
+        });
     })
 
     //this.firestore.collection(collection).valueChanges();
@@ -39,12 +38,12 @@ export class FirebaseService {
     let data = await new Promise<any>((resolve, reject) => {
       this.firestore.collection(collection).snapshotChanges()
         .subscribe(snapshots => {
-          resolve(snapshots)
+          resolve(snapshots.map((el: any) => Object.assign(el.payload.doc.data(), { id: el.payload.doc.id })))
         })
     });
 
     data.forEach(el => {
-      if (el.payload.doc.id === id) {
+      if (el.id === id) {
         doc = el
       }
     });

@@ -27,15 +27,14 @@ export class LoginComponent implements OnInit {
 
   async onSubmit() {
     if (this.loginForm.valid) {
-      const data = await this.firebase.getData("users")
-      console.log(data)
-      const users = data.map(el => el.payload.doc.data());
-      console.log(users);
-  
+      const users = await this.firebase.getData("users")
+
       users.forEach(user => {
+        // if (user.payload.doc.data().login === this.loginForm.value.login && user.payload.doc.data().password === this.loginForm.value.password) {
         if (user.login === this.loginForm.value.login && user.password === this.loginForm.value.password) {
           console.log("LOGIN SUCCES", user);
           this.userSevice.user = user;
+          this.userSevice.userId = user.id;
           this.router.navigate(['/']);
         } else {
           console.log("err")

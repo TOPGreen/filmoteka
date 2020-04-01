@@ -16,8 +16,7 @@ export class MainComponent implements OnInit {
   filmTitle;
 
   constructor(private firebase: FirebaseService) {
-    this.films = firebase.films;
-    console.log(this.films)
+    this.films = this.firebase.getData("films")
   }
 
 
@@ -26,9 +25,17 @@ export class MainComponent implements OnInit {
   }
 
   public addFilm() {
-    this.firebase.addFilm({
-      id: 0,
+    this.firebase.postData("films", {
       title: this.filmTitle
     })
   }
+
+  public deleteFilm(id) {
+    this.firebase.deleteData("films", id);
+  }
+
+  public editFilm() {
+    this.firebase.updateData("films", this.films[0].id, { title: "Interstellar" });
+  }
+
 }

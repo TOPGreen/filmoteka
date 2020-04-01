@@ -1,7 +1,10 @@
 <ul>
   <li class="text" *ngFor="let film of films | async">
     {{film.title}}
+    <button id="deleteFilm" (click)="deleteFilm(film.id)">Удалить</button>
   </li>
 </ul>
-<input type="text" name="" id="filmTitle" [(ngModel)] = "filmTitle">
+<input type="text" name="" id="filmTitle" [(ngModel)]="filmTitle">
 <button id="addFilm" (click)="addFilm()">Добавить фильм</button>
+<button id="editFilm" (click)="editFilm()">Изменить</button>
+

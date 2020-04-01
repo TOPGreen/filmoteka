@@ -16,11 +16,17 @@ export class FirebaseService {
   }
 
   public getData(collection) {
-    return this.firestore.collection(collection).valueChanges();
+    return new Promise<any>((resolve, reject) => {
+      this.firestore.collection(collection).snapshotChanges()
+        .subscribe(snapshots => {
+          resolve(snapshots)
+        })
+    })
+
+    //this.firestore.collection(collection).valueChanges();
   }
 
   public updateData(collection, filmId, data) {
-    data.nameToSearch = data.name.toLowerCase();
     return this.firestore.collection(collection).doc(filmId).set(data);
   }
 

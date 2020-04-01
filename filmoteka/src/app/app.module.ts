@@ -14,6 +14,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { FilmCardComponent } from './components/film-card/film-card.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     RegisterComponent,
     LoginComponent,
+    FilmCardComponent,
   ],
   imports: [
     BrowserModule,

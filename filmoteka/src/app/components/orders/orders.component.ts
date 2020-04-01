@@ -24,7 +24,6 @@ export class OrdersComponent implements OnInit {
     });
 
     console.log(this.orders)
-    // this.films = .map(async order => order.films.map(async filmId => await this.firebase.getDocumentById("films", filmId)));
   }
 
 }

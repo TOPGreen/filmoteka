@@ -16,6 +16,8 @@ export class OrdersComponent implements OnInit {
 
   async ngOnInit() {
     this.orders = await this.firebase.getData("orders");
+    this.orders = this.orders.filter(order => order.client.trim() === this.userService.userId.trim());
+
     let films = await this.firebase.getData("films");
     this.orders.forEach(el => {
       el.films = el.films.map(id => films.filter(film => film.id.trim() === id.trim())[0])

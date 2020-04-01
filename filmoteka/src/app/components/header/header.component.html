@@ -2,21 +2,24 @@
   <a class="navbar-brand">Filmoteka</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a *ngIf="userService.role>-1" class="nav-item nav-link" [routerLink]="'/films'" routerLinkActive="active"
+      <a *ngIf="userService.user.role>-1" class="nav-item nav-link" [routerLink]="'/films'" routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }">Films</a>
-      <a *ngIf="userService.role>-1" class="nav-item nav-link" [routerLink]="'/orders'"
+      <a *ngIf="userService.user.role>-1" class="nav-item nav-link" [routerLink]="'/orders'"
         routerLinkActive="active">Orders</a>
-      <a *ngIf="userService.role>0" class="nav-item nav-link" [routerLink]="'/journal'"
+      <a *ngIf="userService.user.role>0" class="nav-item nav-link" [routerLink]="'/journal'"
         routerLinkActive="active">Journal</a>
-      <a *ngIf="userService.role>0" class="nav-item nav-link" [routerLink]="'/addFilm'" routerLinkActive="active">Add
+      <a *ngIf="userService.user.role>0" class="nav-item nav-link" [routerLink]="'/addFilm'"
+        routerLinkActive="active">Add
         Film</a>
-      <a *ngIf="userService.role>1" class="nav-item nav-link" [routerLink]="'/addfilmRequests'"
+      <a *ngIf="userService.user.role>1" class="nav-item nav-link" [routerLink]="'/addfilmRequests'"
         routerLinkActive="active">Add
         Requests</a>
-      <a *ngIf="userService.role===-1" class="nav-item nav-link" [routerLink]="'/register'"
+      <a *ngIf="userService.user.role===-1" class="nav-item nav-link" [routerLink]="'/register'"
         routerLinkActive="active">Sign up</a>
-      <a *ngIf="userService.role===-1" class="nav-item nav-link" [routerLink]="'/login'"
+      <a *ngIf="userService.user.role===-1" class="nav-item nav-link" [routerLink]="'/login'"
         routerLinkActive="active">Sign in</a>
+      <a *ngIf="userService.user.role>-1" class="nav-item nav-link" [routerLink]="'/login'"
+        routerLinkActive="active">Sign out</a>
     </div>
   </div>
 </nav>

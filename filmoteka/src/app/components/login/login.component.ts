@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl(null, [Validators.required]),
       role: new FormControl(0, []),
     })
+    userSevice.user = { login: null, password: null, role: -1 };
   }
 
   ngOnInit(): void {
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
         data.forEach((user: User) => {
           if (user.login === this.loginForm.value.login && user.password === this.loginForm.value.password) {
             console.log("LOGIN SUCCES", user);
-            this.userSevice.role = user.role;
+            this.userSevice.user = user;
             this.router.navigate(['/']);
           } else {
             console.log("err")

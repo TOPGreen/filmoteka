@@ -5,6 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  public role = -1;
+  public user: User = {
+    login: null,
+    password: null,
+    role: -1,
+  };
+
   constructor() { }
+}
+
+interface User {
+  login: string,
+  password: string,
+  role: number
 }

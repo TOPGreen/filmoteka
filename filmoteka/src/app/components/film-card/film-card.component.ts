@@ -21,15 +21,15 @@ export class FilmCardComponent implements OnInit {
   }
 
   public deleteFilm() {
-    this.firebase.deleteData("films", this.film.payload.doc.id);
+    this.firebase.deleteData("films", this.film.id);
+    this.firebase.deleteData("requests", this.film.id);
     this.refresh.emit({});
   }
 
-  // public editFilm() {
-    // this.firebase.updateData("films", this.film.payload.doc.id, { title: "Interstellar" });
-    // console.log(this.firebase.getDocumentById("films", this.film.payload.doc.id))
-    // this.refresh.emit({});
-  // }
+  public editFilm() {
+    this.firebase.updateData("films", this.film.id, { title: "Interstellar" });
+    this.refresh.emit({});
+  }
 
 
 }

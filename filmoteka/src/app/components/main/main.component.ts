@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
 
   films = [];
-  filmTitle;
 
   constructor(private firebase: FirebaseService) {
   }

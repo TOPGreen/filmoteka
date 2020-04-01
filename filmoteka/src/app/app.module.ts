@@ -18,6 +18,7 @@ import { FilmCardComponent } from './components/film-card/film-card.component';
 import { EditFilmComponent } from './components/edit-film/edit-film.component';
 import { JournalComponent } from './components/journal/journal.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { RequestsComponent } from './components/requests/requests.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     EditFilmComponent,
     JournalComponent,
     OrdersComponent,
+    RequestsComponent,
   ],
   imports: [
     BrowserModule,

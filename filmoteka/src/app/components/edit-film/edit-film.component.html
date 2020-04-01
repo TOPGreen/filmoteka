@@ -3,10 +3,11 @@
 <form id="regForm" [formGroup]="filmForm">
   <div class="form-group">
     <label for="exampleInputEmail1">Title</label>
-    <input type="text" class="form-control" id="filmTItle"
-      placeholder="Film Title" formControlName="title">
+    <input type="text" class="form-control" id="filmTItle" placeholder="Film Title" formControlName="title">
   </div>
 
   <button *ngIf="id==='-1'" type="submit" class="btn btn-primary" (click)="addFilm()">Add Film</button>
-  <button *ngIf="id!=='-1'" type="submit" class="btn btn-primary" (click)="updateFilm()">Update Film</button>
+  <button *ngIf="id!=='-1' && id!=='0'" type="submit" class="btn btn-primary" (click)="updateFilm()">Update
+    Film</button>
+  <button *ngIf="id==='0'" type="submit" class="btn btn-primary" (click)="makeRequest()">Make request</button>
 </form>

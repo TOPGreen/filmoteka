@@ -25,6 +25,7 @@ export class EditFilmComponent implements OnInit {
 
     this.filmForm = new FormGroup({
       title: new FormControl(null, [Validators.required]),
+      //
     })
   }
 
@@ -64,7 +65,7 @@ export class EditFilmComponent implements OnInit {
 
   public async makeRequest() {
     await this.firebase.postData("requests", this.filmForm.value);
-    this.router.navigate(['/']);
+    this.router.navigate(['/requests']);
   }
 
 }

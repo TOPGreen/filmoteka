@@ -1,42 +1,48 @@
-<p>{{id}}</p>
+<div class=" d-flex justify-content-center form-container">
+  <form id="regForm" [formGroup]="filmForm" class="col col-5  border border-light">
+    <div class="form-group">
+      <label for="filmImage">Картинка</label>
+      <input type="text" class="form-control" id="filmImage" placeholder="Ссылка на картинку" formControlName="image">
+    </div>
+    <div class="form-group">
+      <label for="filmTitle">Название</label>
+      <input type="text" class="form-control" id="filmTitle" placeholder="Название фильма" formControlName="title">
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="form-group col-4" style="padding: 0;">
+        <label for="filmGenre">Жанр</label>
+        <input type="text" class="form-control" id="filmGenre" placeholder="Жанр" formControlName="genre">
+      </div>
+      <div class="form-group col-3" style="padding: 0;">
+        <label for="filmYear">Год</label>
+        <input type="text" class="form-control" id="filmYear" placeholder="Год" formControlName="year">
+      </div>
+      <div class="form-group col-4"style="padding: 0;">
+        <label for="filmCount">Количество</label>
+        <input type="number" class="form-control" id="filmCount" placeholder="Количество" formControlName="count">
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <label for="filmDirector">Режиссёр</label>
+      <input type="text" class="form-control" id="filmDirector" placeholder="Режиссёр" formControlName="director">
+    </div>
+    <div class="form-group">
+      <label for="filmActor">В главных ролях</label>
+      <input type="text" class="form-control" id="filmActor" placeholder="В главных ролях" formControlName="actor">
+    </div>
+    <div class="form-group">
+      <label for="filmDesc">Описание</label>
+      <textarea type="text" class="form-control" rows=3 placeholder="Описание" formControlName="desc" id="filmDesc"
+        formControlName="desc"> </textarea>
+    </div>
 
-<form id="regForm" [formGroup]="filmForm">
-  <div class="form-group">
-    <label for="filmImage">Картинка</label>
-    <input type="text" class="form-control" id="filmImage" placeholder="Ссылка на картинку" formControlName="image">
-  </div>
-  <div class="form-group">
-    <label for="filmTitle">Название</label>
-    <input type="text" class="form-control" id="filmTitle" placeholder="Название фильма" formControlName="title">
-  </div>
-  <div class="form-group">
-    <label for="filmGenre">Жанр</label>
-    <input type="text" class="form-control" id="filmGenre" placeholder="Жанр" formControlName="genre">
-  </div>
-  <div class="form-group">
-    <label for="filmYear">Год</label>
-    <input type="text" class="form-control" id="filmYear" placeholder="Год" formControlName="year">
-  </div>
-  <div class="form-group">
-    <label for="filmCount">Количество</label>
-    <input type="text" class="form-control" id="filmCount" placeholder="Количество" formControlName="count">
-  </div>
-  <div class="form-group">
-    <label for="filmDesc">Описание</label>
-    <textarea   type="text" class="form-control" placeholder="Описание" formControlName="desc" 
-    id="filmDesc" formControlName="desc"> </textarea>
-  </div>
-  <div class="form-group">
-    <label for="filmDirector">Режиссёр</label>
-    <input type="text" class="form-control" id="filmDirector" placeholder="Режиссёр" formControlName="director">
-  </div>
-  <div class="form-group">
-    <label for="filmActor">В главных ролях</label>
-    <input type="text" class="form-control" id="filmActor" placeholder="В главных ролях" formControlName="actor">
-  </div>
-  
 
-  <button *ngIf="id==='-1'" type="submit" class="btn btn-primary" (click)="addFilm()">Добавить</button>
-  <button *ngIf="id!=='-1' && id!=='0'" type="submit" class="btn btn-primary" (click)="updateFilm()">Обновить</button>
-  <button *ngIf="id==='0'" type="submit" class="btn btn-primary" (click)="makeRequest()">Создать заявку</button>
-</form>
+    <div class="float-right buttons-container">
+      <button *ngIf="id==='-1'" type="submit" class="btn btn-primary" (click)="addFilm()">Добавить</button>
+      <button *ngIf="id!=='-1' && id!=='0'" type="submit" class="btn btn-primary"
+        (click)="updateFilm()">Обновить</button>
+      <button *ngIf="id==='0'" type="submit" class="btn btn-primary" (click)="makeRequest()">Создать заявку</button>
+    </div>
+  </form>
+</div>

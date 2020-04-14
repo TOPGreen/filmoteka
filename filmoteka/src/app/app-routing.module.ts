@@ -7,6 +7,7 @@ import { EditFilmComponent } from './components/edit-film/edit-film.component';
 import { JournalComponent } from './components/journal/journal.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { RequestsComponent } from './components/requests/requests.component';
+import { FilmInfoComponent } from './components/film-info/film-info.component';
 
 const routes: Routes = [
   { path: "", component: MainComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "journal", component: JournalComponent },
   { path: "orders", component: OrdersComponent },
   { path: "requests", component: RequestsComponent },
+  {path: "info/:id", component: FilmInfoComponent}
 ];
 
 @NgModule({

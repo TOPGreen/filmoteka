@@ -2,12 +2,36 @@
 
 <form id="regForm" [formGroup]="filmForm">
   <div class="form-group">
-    <label for="exampleInputEmail1">Title</label>
-    <input type="text" class="form-control" id="filmTItle" placeholder="Film Title" formControlName="title">
+    <label for="filmImage">Картинка</label>
+    <input type="text" class="form-control" id="filmImage" placeholder="Ссылка на картинку" formControlName="image">
+  </div>
+  <div class="form-group">
+    <label for="filmTitle">Название</label>
+    <input type="text" class="form-control" id="filmTitle" placeholder="Название фильма" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label for="filmGenre">Год, жанр</label>
+    <input type="text" class="form-control" id="filmGenre" placeholder="Жанр" formControlName="genre">
+  </div>
+  <div class="form-group">
+    <label for="filmCount">Количество</label>
+    <input type="text" class="form-control" id="filmCount" placeholder="Количество" formControlName="count">
+  </div>
+  <div class="form-group">
+    <label for="filmDesc">Описание</label>
+    <input type="text" class="form-control" id="filmDesc" placeholder="Описание" formControlName="desc">
+  </div>
+  <div class="form-group">
+    <label for="filmDirector">Режиссёр</label>
+    <input type="text" class="form-control" id="filmDirector" placeholder="Режиссёр" formControlName="director">
+  </div>
+  <div class="form-group">
+    <label for="filmActor">В главных ролях</label>
+    <input type="text" class="form-control" id="filmActor" placeholder="В главных ролях" formControlName="actor">
   </div>
   
-  <button *ngIf="id==='-1'" type="submit" class="btn btn-primary" (click)="addFilm()">Add Film</button>
-  <button *ngIf="id!=='-1' && id!=='0'" type="submit" class="btn btn-primary" (click)="updateFilm()">Update
-    Film</button>
-  <button *ngIf="id==='0'" type="submit" class="btn btn-primary" (click)="makeRequest()">Make request</button>
+
+  <button *ngIf="id==='-1'" type="submit" class="btn btn-primary" (click)="addFilm()">Добавить</button>
+  <button *ngIf="id!=='-1' && id!=='0'" type="submit" class="btn btn-primary" (click)="updateFilm()">Обновить</button>
+  <button *ngIf="id==='0'" type="submit" class="btn btn-primary" (click)="makeRequest()">Создать заявку</button>
 </form>

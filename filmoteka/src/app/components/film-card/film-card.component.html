@@ -1,9 +1,17 @@
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="#" alt="Card image cap">
+<div class="card" style="width: 18rem; margin: 10px; padding: 10px; border-radius: 10px; 
+background: rgba(0, 0, 0, 0.3) ; color: aliceblue; " >
+  <img class="card-img-top" src={{film.image}} alt="Card image cap" style="
+   border-radius: 15px">
   <div class="card-body">
     <h5 class="card-title">{{film.title}}</h5>
-    <p class="card-text">Info</p>
-    <button *ngIf="user.role===2" class="btn btn-danger" id="deleteFilm" (click)="deleteFilm()">Удалить</button>
+    <p class="card-text">{{film.genre}}</p>
+    <p>
+    <a *ngIf="user.role===2" class="btn btn-primary" id="editFilm" [routerLink]="['/edit_film', film.id]">Информация</a>
+  </p> <p>
+    <button *ngIf="user.role===2" class="btn btn-danger" id="deleteFilm" (click)="deleteFilm()"
+    style="margin-right: 10px;">Удалить</button>
+    
     <a *ngIf="user.role===2" class="btn btn-primary" id="editFilm" [routerLink]="['/edit_film', film.id]">Изменить</a>
+    </p>
   </div>
 </div>

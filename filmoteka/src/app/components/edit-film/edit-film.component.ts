@@ -25,7 +25,12 @@ export class EditFilmComponent implements OnInit {
 
     this.filmForm = new FormGroup({
       title: new FormControl(null, [Validators.required]),
-      //
+      image: new FormControl(null, [Validators.required]),
+      genre: new FormControl(null, [Validators.required]),
+      count: new FormControl(null, [Validators.required]),
+      desc: new FormControl(null, [Validators.required]),
+      director: new FormControl(null, [Validators.required]),
+      actor: new FormControl(null, [Validators.required])
     })
   }
 
@@ -44,6 +49,12 @@ export class EditFilmComponent implements OnInit {
       console.log(this.film)
       this.filmForm.patchValue({
         title: this.film.title,
+        image: this.film.image,
+        genre: this.film.genre,
+        count: this.film.count,
+        desc: this.film.desc,
+        director: this.film.director,
+        actor: this.film.actor
       })
     }
   }

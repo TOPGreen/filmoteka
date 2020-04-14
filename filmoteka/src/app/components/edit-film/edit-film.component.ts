@@ -78,7 +78,7 @@ export class EditFilmComponent implements OnInit {
 
   public async makeRequest() {
     await this.firebase.postData("requests", this.filmForm.value);
-    this.router.navigate(['/']);
+    this.router.navigate(['/requests']);
   }
 
 }

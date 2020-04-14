@@ -1,27 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">Filmoteka</a>
+  <a class="navbar-brand">Фильмотека</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a *ngIf="userService.user.role>-1" class="nav-item nav-link" [routerLink]="'/'" routerLinkActive="active"
-        [routerLinkActiveOptions]="{ exact: true }">Films</a>
+        [routerLinkActiveOptions]="{ exact: true }">Фильмы</a>
       <a *ngIf="userService.user.role===0" class="nav-item nav-link" [routerLink]="'/orders'"
-        routerLinkActive="active">Orders</a>
+        routerLinkActive="active">Заказы</a>
       <a *ngIf="userService.user.role>0" class="nav-item nav-link" [routerLink]="'/journal'"
-        routerLinkActive="active">Journal</a>
+        routerLinkActive="active">Журнал заказов</a>
       <a *ngIf="userService.user.role===2" class="nav-item nav-link" [routerLink]="'/edit_film/-1'"
-        routerLinkActive="active">Add
-        Film</a>
+        routerLinkActive="active">Добавить фильм</a>
       <a *ngIf="userService.user.role===1" class="nav-item nav-link" [routerLink]="'/edit_film/0'"
-        routerLinkActive="active">Add
-        Request</a>
+        routerLinkActive="active">Добавить заказ</a>
       <a *ngIf="userService.user.role>1" class="nav-item nav-link" [routerLink]="'/requests'" routerLinkActive="active">
-        Requests</a>
+        Запросы на добавление фильма</a>
       <a *ngIf="userService.user.role===-1" class="nav-item nav-link" [routerLink]="'/register'"
-        routerLinkActive="active">Sign up</a>
+        routerLinkActive="active">Зарегистрироваться</a>
       <a *ngIf="userService.user.role===-1" class="nav-item nav-link" [routerLink]="'/login'"
-        routerLinkActive="active">Sign in</a>
+        routerLinkActive="active">Войти</a>
       <a *ngIf="userService.user.role>-1" class="nav-item nav-link" [routerLink]="'/login'"
-        routerLinkActive="active">Sign out</a>
+        routerLinkActive="active">Выйти</a>
     </div>
   </div>
 </nav>

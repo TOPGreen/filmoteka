@@ -4,7 +4,7 @@ background: rgba(0, 0, 0, 0.3) ; color: aliceblue; " >
    border-radius: 15px">
   <div class="card-body">
     <h5 class="card-title">{{film.title}}</h5>
-    <p class="card-text">{{film.genre}}</p>
+    <p class="card-text">{{film.year}}, {{film.genre}}</p>
     <p>
     <a *ngIf="user.role===2" class="btn btn-primary" id="editFilm" [routerLink]="['/edit_film', film.id]">Информация</a>
   </p> <p>

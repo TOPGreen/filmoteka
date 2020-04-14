@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between flex-wrap">
+<div class="d-flex flex-wrap">
   <div class="col col-3" *ngFor="let film of films">
     <app-film-card [film]="film" (refresh) ="ngOnInit()"></app-film-card>
   </div>

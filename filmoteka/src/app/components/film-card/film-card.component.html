@@ -26,7 +26,7 @@ background: rgba(0, 0, 0, 0.3) ; color: aliceblue; ">
       <p class="card-text">{{film.year}} год, {{film.genre}}</p>
       <p>Режиссер: {{film.director}}</p>
       <p>
-        <button *ngIf="user.role===2" class="btn btn-danger" id="deleteFilm" (click)="deleteFilm()"
+        <button *ngIf="user.role===2" class="btn btn-danger" id="deleteFilm" (click)="deleteFilm($event)"
           style="margin-right: 10px;">Удалить</button>
 
         <a *ngIf="user.role===2" class="btn btn-primary" id="editFilm"

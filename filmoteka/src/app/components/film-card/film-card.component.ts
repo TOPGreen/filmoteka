@@ -22,7 +22,8 @@ export class FilmCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public deleteFilm() {
+  public deleteFilm(event) {
+    event.stopPropagation();
     this.firebase.deleteData("films", this.film.id);
     this.firebase.deleteData("requests", this.film.id);
     this.refresh.emit({});

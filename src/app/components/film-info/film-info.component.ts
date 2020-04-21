@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
+import {FirebaseService} from 'src/app/services/firebase.service';
+import {IFilm} from "../../interfaces/IFilm";
 
 @Component({
   selector: 'app-film-info',
@@ -10,20 +11,21 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 export class FilmInfoComponent implements OnInit {
 
 
-  id;
-  film;
+  id: string;
+  film: IFilm;
 
   constructor(private activatedRouter: ActivatedRoute,
-    private router: Router,
-    private firebase: FirebaseService) { 
-      this.activatedRouter.params.subscribe(param => {
+              private router: Router,
+              private firebase: FirebaseService) {
+    this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
-    });}
+    });
+  }
 
- async ngOnInit() {
+  async ngOnInit() {
     this.film = await this.firebase.getDocumentById("films", this.id);
 
-    
+
   }
 
 }

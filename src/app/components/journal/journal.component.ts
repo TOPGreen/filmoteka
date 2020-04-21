@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/services/firebase.service';
-import { UserService } from 'src/app/services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {FirebaseService} from 'src/app/services/firebase.service';
+import {UserService} from 'src/app/services/user.service';
+import {IFilm} from "../../interfaces/IFilm";
 
 @Component({
   selector: 'app-journal',
@@ -10,9 +11,11 @@ import { UserService } from 'src/app/services/user.service';
 export class JournalComponent implements OnInit {
 
 
-  orders;
-  films;
-  constructor(public firebase: FirebaseService, public userService: UserService) { }
+  orders: any;
+  films: IFilm;
+
+  constructor(public firebase: FirebaseService, public userService: UserService) {
+  }
 
   async ngOnInit() {
     this.orders = await this.firebase.getData("orders");

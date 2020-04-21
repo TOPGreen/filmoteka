@@ -47,9 +47,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
-
-interface User {
-  login: string,
-  password: string,
-  role: number
-}

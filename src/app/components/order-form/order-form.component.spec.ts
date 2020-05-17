@@ -1,19 +1,19 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {LoginComponent} from './login.component';
+import { OrderFormComponent } from './order-form.component';
 import {AngularFireModule} from "@angular/fire";
 import {environment} from "../../../environments/environment";
 import {AngularFireAnalyticsModule} from "@angular/fire/analytics";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {AppRoutingModule} from "../../app-routing.module";
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+describe('OrderFormComponent', () => {
+  let component: OrderFormComponent;
+  let fixture: ComponentFixture<OrderFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent],
+      declarations: [ OrderFormComponent ],
       imports: [
         AngularFireModule.initializeApp(environment.firebase),
         AngularFireAnalyticsModule,
@@ -21,11 +21,11 @@ describe('LoginComponent', () => {
         AppRoutingModule
       ],
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(OrderFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -33,9 +33,4 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('all fields must be required', () => {
-    component.loginForm.patchValue({email: null, password: "qweeq"})
-    expect(component.loginForm.valid).toEqual(false)
-  })
 });

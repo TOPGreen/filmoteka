@@ -1,5 +1,6 @@
-<div class="row">
-  <div class="col-3" *ngFor="let request of requests">
+<div class="d-flex flex-wrap">
+  <div *ngFor="let request of requests">
     <app-film-card [film]="request" (refresh)="ngOnInit()"></app-film-card>
   </div>
 </div>
+

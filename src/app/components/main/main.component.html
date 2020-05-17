@@ -1,6 +1,5 @@
 <div class="d-flex flex-wrap">
-  <div class="col col-3" *ngFor="let film of films">
+  <div *ngFor="let film of films">
     <app-film-card [film]="film" (refresh) ="ngOnInit()"></app-film-card>
   </div>
 </div>
-

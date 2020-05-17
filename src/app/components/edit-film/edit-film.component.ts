@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/services/firebase.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FirebaseService} from 'src/app/services/firebase.service';
+import {Router, ActivatedRoute} from '@angular/router';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {IFilm} from "../../interfaces/IFilm";
 
 @Component({
   selector: 'app-edit-film',
@@ -10,10 +11,11 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditFilmComponent implements OnInit {
 
-  id;
-  film;
+  id: string;
+  film: IFilm;
   filmForm: FormGroup;
-  requestId;
+  requestId: string;
+
   constructor(
     private activatedRouter: ActivatedRoute,
     private router: Router,

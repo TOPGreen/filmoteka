@@ -37,19 +37,11 @@ export class LoginComponent implements OnInit {
           this.userSevice.userId = user.id;
           this.router.navigate(['/']);
         } else {
-          console.log("err")
+          console.log("")
         }
       });
-
-
     } else {
       alert("Некорректные данные");
     }
   }
-}
-
-interface User {
-  login: string,
-  password: string,
-  role: number
 }

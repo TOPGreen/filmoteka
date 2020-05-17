@@ -1,7 +1,9 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { FirebaseService } from 'src/app/services/firebase.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {UserService} from 'src/app/services/user.service';
+import {FirebaseService} from 'src/app/services/firebase.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {IUser} from "../../interfaces/IUser";
+import {IFilm} from "../../interfaces/IFilm";
 
 @Component({
   selector: 'app-film-card',
@@ -10,12 +12,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FilmCardComponent implements OnInit {
 
-  @Input() film: any;
+  @Input() film: IFilm;
   @Output() refresh = new EventEmitter<{}>();
 
-  user;
+  user: IUser;
+
   constructor(private firebase: FirebaseService, public userService: UserService, private activatedRouter: ActivatedRoute,
-    private router: Router, ) {
+              private router: Router,) {
     this.user = userService.user
   }
 
@@ -30,7 +33,7 @@ export class FilmCardComponent implements OnInit {
   }
 
   public editFilm() {
-    this.firebase.updateData("films", this.film.id, { title: "Interstellar" });
+    this.firebase.updateData("films", this.film.id, {title: "Interstellar"});
     this.refresh.emit({});
   }
 

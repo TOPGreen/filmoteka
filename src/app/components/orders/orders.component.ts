@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/services/firebase.service';
-import { UserService } from 'src/app/services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {FirebaseService} from 'src/app/services/firebase.service';
+import {UserService} from 'src/app/services/user.service';
+import {IFilm} from "../../interfaces/IFilm";
 
 @Component({
   selector: 'app-orders',
@@ -9,21 +10,31 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class OrdersComponent implements OnInit {
 
-  orders;
-  films;
-  constructor(public firebase: FirebaseService, public userService: UserService) { }
+  orders: any;
+  films: IFilm[];
 
+  constructor(public firebase: FirebaseService, public userService: UserService) {
+  }
 
   async ngOnInit() {
     this.orders = await this.firebase.getData("orders");
-    this.orders = this.orders.filter(order => order.client.trim() === this.userService.userId.trim());
+    this.orders = this.orders.filter(order => order.clientId.trim() === this.userService.userId.trim());
+  }
 
-    let films = await this.firebase.getData("films");
-    this.orders.forEach(el => {
-      el.films = el.films.map(id => films.filter(film => film.id.trim() === id.trim())[0])
-    });
-
-    console.log(this.orders)
+  getStatus(status) {
+    let output = ""
+    switch (status) {
+      case "pending":
+        output = "Обрабатывается"
+        break;
+      case "resolved":
+        output = "Готов"
+        break;
+      case "rejected":
+        output = "Отклонен"
+        break;
+    }
+    return output;
   }
 
 }

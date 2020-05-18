@@ -1,13 +1,26 @@
 <table class="table" style="color: aliceblue;">
   <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th>Фильмы</th>
-    </tr>
+  <tr>
+    <th>Клиент</th>
+    <th>Email</th>
+    <th>Номер телефона</th>
+    <th>Фильм</th>
+    <th>Статус</th>
+  </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let order of orders">
-      <td><span *ngFor="let film of order.films">{{film.title}}, </span></td>
-    </tr>
+  <tr *ngFor="let order of orders; let index = index">
+    <td>{{order.client}}</td>
+    <td>{{order.email}}</td>
+    <td>{{order.telephone}}</td>
+    <td>{{order.film}}</td>
+    <td>
+      <select (change)="setOrderStatus(index)" [(ngModel)]="statuses[index]">
+        <option value="pending">Обрабатывается</option>
+        <option value="rejected">Отклонен</option>
+        <option value="resolved">Готов</option>
+      </select>
+    </td>
+  </tr>
   </tbody>
 </table>

@@ -9,5 +9,9 @@
     <p *ngIf='film.actor'>В главных ролях: {{film.actor}}</p>
     <p>Режиссер: {{film.director}}</p>
     <p>Количество: {{film.count}} шт.</p>
+    <div>
+      <button class="btn btn-primary" (click)="onOrderClick()">Сделать заказ</button>
+    </div>
   </div>
 </div>
+

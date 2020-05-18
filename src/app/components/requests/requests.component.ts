@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from 'src/app/services/firebase.service';
+import {Component, OnInit} from '@angular/core';
+import {FirebaseService} from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-requests',
@@ -8,8 +8,10 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class RequestsComponent implements OnInit {
 
-  requests;
-  constructor(private firebase: FirebaseService) { }
+  requests: any;
+
+  constructor(private firebase: FirebaseService) {
+  }
 
   async ngOnInit() {
     this.requests = await this.firebase.getData("requests")

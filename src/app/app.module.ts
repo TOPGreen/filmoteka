@@ -11,6 +11,7 @@ import {HeaderComponent} from './components/header/header.component'
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAnalyticsModule} from '@angular/fire/analytics';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import {RegisterComponent} from './components/register/register.component';
 import {LoginComponent} from './components/login/login.component';
@@ -21,6 +22,8 @@ import {OrdersComponent} from './components/orders/orders.component';
 import {RequestsComponent} from './components/requests/requests.component';
 import {FilmInfoComponent} from './components/film-info/film-info.component';
 import {OrderFormComponent} from './components/order-form/order-form.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import {AuthGuard} from "./guards/auth.guard";
 
 
 @NgModule({
@@ -37,6 +40,7 @@ import {OrderFormComponent} from './components/order-form/order-form.component';
     RequestsComponent,
     FilmInfoComponent,
     OrderFormComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -47,8 +51,9 @@ import {OrderFormComponent} from './components/order-form/order-form.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

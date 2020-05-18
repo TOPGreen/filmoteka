@@ -18,7 +18,7 @@ export class OrdersComponent implements OnInit {
 
   async ngOnInit() {
     this.orders = await this.firebase.getData("orders");
-    this.orders = this.orders.filter(order => order.clientId.trim() === this.userService.userId.trim());
+    this.orders = this.orders.filter(order => order.clientId.trim() === this.userService.getUser.uid.trim());
   }
 
   getStatus(status) {

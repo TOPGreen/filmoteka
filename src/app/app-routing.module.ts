@@ -9,17 +9,18 @@ import {OrdersComponent} from './components/orders/orders.component';
 import {RequestsComponent} from './components/requests/requests.component';
 import {FilmInfoComponent} from './components/film-info/film-info.component';
 import {OrderFormComponent} from "./components/order-form/order-form.component";
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
-  {path: "", component: MainComponent},
+  {path: "", component: MainComponent, canActivate: [AuthGuard]},
   {path: "register", component: RegisterComponent},
   {path: "login", component: LoginComponent},
-  {path: "edit_film/:id", component: EditFilmComponent},
-  {path: "journal", component: JournalComponent},
-  {path: "orders", component: OrdersComponent},
-  {path: "requests", component: RequestsComponent},
-  {path: "info/:id", component: FilmInfoComponent},
-  {path: "order", component: OrderFormComponent}
+  {path: "edit_film/:id", component: EditFilmComponent, canActivate: [AuthGuard]},
+  {path: "journal", component: JournalComponent, canActivate: [AuthGuard]},
+  {path: "orders", component: OrdersComponent, canActivate: [AuthGuard]},
+  {path: "requests", component: RequestsComponent, canActivate: [AuthGuard]},
+  {path: "info/:id", component: FilmInfoComponent, canActivate: [AuthGuard]},
+  {path: "order", component: OrderFormComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

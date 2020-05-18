@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { FirebaseService } from 'src/app/services/firebase.service';
-import { Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, Validators, FormControl} from '@angular/forms';
+import {FirebaseService} from 'src/app/services/firebase.service';
+import {Router} from '@angular/router';
+import {HeaderComponent} from '../header/header.component';
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-register',
@@ -12,11 +13,11 @@ import { HeaderComponent } from '../header/header.component';
 export class RegisterComponent implements OnInit {
 
   regForm: FormGroup;
-  constructor(private firebase: FirebaseService, private router: Router, ) {
+
+  constructor(private firebase: FirebaseService, private router: Router, private authService: UserService) {
     this.regForm = new FormGroup({
       login: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [Validators.required]),
-      role: new FormControl(0, []),
     })
   }
 
@@ -24,12 +25,26 @@ export class RegisterComponent implements OnInit {
   }
 
   async onSubmit() {
+    // if (this.regForm.valid) {
+    //   await this.firebase.postData("users", this.regForm.value);
+    //   this.router.navigate(['/login']);
+    // } else {
+    //   alert("Некорректные данные");
+    // }
     if (this.regForm.valid) {
-      await this.firebase.postData("users", this.regForm.value);
-      this.router.navigate(['/login']);
+      this.tryRegister(this.regForm.value);
     } else {
-      alert("Некорректные данные");
+      alert("All fields are required");
     }
+  }
+
+  tryRegister(value): void {
+    this.authService.doRegister(value)
+      .then(res => {
+        this.router.navigate(['/']);
+      }, err => {
+        alert(err.message);
+      })
   }
 
 }

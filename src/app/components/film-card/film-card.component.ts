@@ -15,11 +15,11 @@ export class FilmCardComponent implements OnInit {
   @Input() film: IFilm;
   @Output() refresh = new EventEmitter<{}>();
 
-  user: IUser;
+  role: number;
 
   constructor(private firebase: FirebaseService, public userService: UserService, private activatedRouter: ActivatedRoute,
               private router: Router,) {
-    this.user = userService.user
+    this.role = userService.getUserRole;
   }
 
   ngOnInit(): void {

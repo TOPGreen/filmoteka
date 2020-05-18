@@ -32,7 +32,8 @@ export class FilmCardComponent implements OnInit {
     this.refresh.emit({});
   }
 
-  public editFilm() {
+  public editFilm(event) {
+    event.stopPropagation();
     this.firebase.updateData("films", this.film.id, {title: "Interstellar"});
     this.refresh.emit({});
   }

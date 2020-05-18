@@ -12,7 +12,7 @@
           style="margin-right: 10px;">Удалить</button>
 
         <a *ngIf="role===2" class="btn btn-primary" id="editFilm"
-          [routerLink]="['/edit_film', film.id]">Изменить</a>
+          [routerLink]="['/edit_film', film.id]" (click)="$event.stopPropagation()">Изменить</a>
       </p>
     </div>
   </div>

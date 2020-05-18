@@ -26,7 +26,6 @@ export class JournalComponent implements OnInit {
 
     // let films = await this.firebase.getData("films");
 
-    console.log(this.orders)
   }
 
   setOrderStatus(index: number) {

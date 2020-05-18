@@ -3,6 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router';
 import {FirebaseService} from 'src/app/services/firebase.service';
 import {IFilm} from "../../interfaces/IFilm";
 import {OrderService} from "../../services/order.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-film-info',
@@ -11,12 +12,24 @@ import {OrderService} from "../../services/order.service";
 })
 export class FilmInfoComponent implements OnInit {
   id: string;
-  film: IFilm;
+  film: IFilm = new class implements IFilm {
+    actor: string;
+    count: number;
+    desc: string;
+    director: string;
+    genre: string;
+    id: string;
+    image: string;
+    rating: string;
+    title: string;
+    year: string;
+  };
 
   constructor(private activatedRouter: ActivatedRoute,
               private router: Router,
               private firebase: FirebaseService,
-              private orderService: OrderService) {
+              private orderService: OrderService,
+              public userService: UserService) {
     this.activatedRouter.params.subscribe(param => {
       this.id = param.id;
     });

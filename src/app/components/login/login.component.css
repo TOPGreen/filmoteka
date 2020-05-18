@@ -1,5 +1,6 @@
 .form-container{
-    padding: 10px;
+  min-width: 200px;
+  padding: 10px;
 }
 
 .login-form{

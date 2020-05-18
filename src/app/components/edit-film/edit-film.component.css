@@ -1,7 +1,8 @@
-.form-container{
-    padding: 10px;
+.form-container {
+  min-width: 200px;
+  padding: 10px;
 }
 
-.buttons-container{
-    margin: 10px;
+.buttons-container {
+  margin: 10px;
 }

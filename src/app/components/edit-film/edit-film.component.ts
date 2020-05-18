@@ -30,10 +30,11 @@ export class EditFilmComponent implements OnInit {
       image: new FormControl(null, [Validators.required]),
       genre: new FormControl(null, [Validators.required]),
       year: new FormControl(null, [Validators.required]),
-      count: new FormControl(null, [Validators.required]),
+      count: new FormControl(null, [Validators.required, Validators.min(1)]),
       desc: new FormControl(null, [Validators.required]),
       director: new FormControl(null, [Validators.required]),
-      actor: new FormControl(null, [Validators.required])
+      actor: new FormControl(null, []),
+      rating: new FormControl(null, [Validators.required]),
     })
   }
 
@@ -43,13 +44,11 @@ export class EditFilmComponent implements OnInit {
     }
     if (this.id !== '-1' && this.id !== '0') {
       this.film = await this.firebase.getDocumentById("films", this.id);
-      console.log(this.film)
       if (!this.film) {
         this.film = await this.firebase.getDocumentById("requests", this.id);
         this.requestId = this.id;
         this.id = '-1';
       }
-      console.log(this.film)
       this.filmForm.patchValue({
         title: this.film.title,
         image: this.film.image,
@@ -58,29 +57,42 @@ export class EditFilmComponent implements OnInit {
         count: this.film.count,
         desc: this.film.desc,
         director: this.film.director,
-        actor: this.film.actor
+        actor: this.film.actor,
+        rating: this.film.rating
       })
     }
   }
 
   public async addFilm() {
-    await this.firebase.postData("films", this.filmForm.value)
-    if (this.requestId === '0') {
-      await this.firebase.postData("requests", this.filmForm.value);
-    } else if (this.requestId) {
-      await this.firebase.deleteData("requests", this.requestId);
+    if (this.filmForm.valid) {
+      await this.firebase.postData("films", this.filmForm.value)
+      if (this.requestId === '0') {
+        await this.firebase.postData("requests", this.filmForm.value);
+      } else if (this.requestId) {
+        await this.firebase.deleteData("requests", this.requestId);
+      }
+      this.router.navigate(['/']);
+    } else {
+      alert("Некорректные данные")
     }
-    this.router.navigate(['/']);
   }
 
   public async updateFilm() {
-    await this.firebase.updateData("films", this.id, this.filmForm.value);
-    this.router.navigate(['/']);
+    if (this.filmForm.valid) {
+      await this.firebase.updateData("films", this.id, this.filmForm.value);
+      this.router.navigate(['/']);
+    } else {
+      alert("Некорректные данные")
+    }
   }
 
   public async makeRequest() {
-    await this.firebase.postData("requests", this.filmForm.value);
-    this.router.navigate(['/requests']);
+    if (this.filmForm.valid) {
+      await this.firebase.postData("requests", this.filmForm.value);
+      this.router.navigate(['/requests']);
+    } else {
+      alert("Некорректные данные")
+    }
   }
 
 }

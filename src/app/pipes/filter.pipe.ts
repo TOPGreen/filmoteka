@@ -6,7 +6,7 @@ import {IFilm} from "../interfaces/IFilm";
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(films: IFilm[], searchString: string, genre: string, ...args: unknown[]): unknown {
+  transform(films: IFilm[], searchString: string, genre: string, sortParam: string, sortDirection: string, ...args: unknown[]): unknown {
     return films.filter(film => {
       if (searchString && !film.title.toLowerCase().includes(searchString.toLowerCase())) {
         return false
@@ -15,6 +15,9 @@ export class FilterPipe implements PipeTransform {
         return false;
       }
       return true;
+    }).sort((a: IFilm, b: IFilm) => {
+      let result = +a[sortParam] - +b[sortParam]
+      return sortDirection === "up" ? result : -result;
     });
   }
 

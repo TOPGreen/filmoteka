@@ -8,4 +8,5 @@ export interface IFilm {
   desc: string,
   director: string,
   actor?: string,
+  rating?: string,
 }

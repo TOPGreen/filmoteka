@@ -7,10 +7,10 @@
       <h5 class="card-title">{{film.title}}</h5>
       <p class="card-text">{{film.year}} год, {{film.genre}}</p>
       <p>Режиссер: {{film.director}}</p>
+      <p>Рейтинг: {{film.rating}}</p>
       <p>
         <button *ngIf="role===2" class="btn btn-danger" id="deleteFilm" (click)="deleteFilm($event)"
           style="margin-right: 10px;">Удалить</button>
-
         <a *ngIf="role===2" class="btn btn-primary" id="editFilm"
           [routerLink]="['/edit_film', film.id]" (click)="$event.stopPropagation()">Изменить</a>
       </p>

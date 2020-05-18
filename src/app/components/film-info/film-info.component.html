@@ -8,6 +8,7 @@
     <p class='col-7 desc'>{{film.desc}}</p>
     <p *ngIf='film.actor'>В главных ролях: {{film.actor}}</p>
     <p>Режиссер: {{film.director}}</p>
+    <p>Рейтинг: {{film.rating}}</p>
     <p>Количество: {{film.count}} шт.</p>
     <div>
       <button class="btn btn-primary" (click)="onOrderClick()">Сделать заказ</button>

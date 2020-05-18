@@ -15,14 +15,14 @@
       </div>
       <div class="form-group col-3" style="padding: 0;">
         <label for="filmYear">Год</label>
-        <input type="text" class="form-control" id="filmYear" placeholder="Год" formControlName="year">
+        <input type="number" class="form-control" id="filmYear" placeholder="Год" formControlName="year">
       </div>
       <div class="form-group col-4"style="padding: 0;">
         <label for="filmCount">Количество</label>
         <input type="number" class="form-control" id="filmCount" placeholder="Количество" formControlName="count">
       </div>
     </div>
-   
+
     <div class="form-group">
       <label for="filmDirector">Режиссёр</label>
       <input type="text" class="form-control" id="filmDirector" placeholder="Режиссёр" formControlName="director">
@@ -30,6 +30,10 @@
     <div class="form-group">
       <label for="filmActor">В главных ролях</label>
       <input type="text" class="form-control" id="filmActor" placeholder="В главных ролях" formControlName="actor">
+    </div>
+    <div class="form-group">
+      <label for="rating">Рейтинг</label>
+      <input type="text" class="form-control" id="rating" placeholder="10.0" formControlName="rating">
     </div>
     <div class="form-group">
       <label for="filmDesc">Описание</label>

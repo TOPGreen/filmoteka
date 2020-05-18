@@ -19,6 +19,8 @@ export class MainComponent implements OnInit {
     this.searchForm = new FormGroup({
       "search": new FormControl('', []),
       "genre": new FormControl('Любой', []),
+      "sort": new FormControl('rating', []),
+      "direction": new FormControl('down', []),
     });
   }
 

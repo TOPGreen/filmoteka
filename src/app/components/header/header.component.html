@@ -1,25 +1,26 @@
 <nav class="navbar navbar-expand navbar-light bg-light">
   <a class="navbar-brand">Фильмотека</a>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-        <a *ngIf="userService.getUserRole>-1" class="nav-item nav-link" [routerLink]="'/'" routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">Фильмы</a>
+    <div class="navbar-nav d-flex align-items-center">
+      <a *ngIf="userService.getUserRole>-1" class="nav-item nav-link" [routerLink]="'/'" routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">Фильмы</a>
       <a *ngIf="userService.getUserRole===0" class="nav-item nav-link" [routerLink]="'/orders'"
-        routerLinkActive="active">Заказы</a>
+         routerLinkActive="active">Заказы</a>
       <a *ngIf="userService.getUserRole>0" class="nav-item nav-link" [routerLink]="'/journal'"
-        routerLinkActive="active">Журнал заказов</a>
+         routerLinkActive="active">Журнал заказов</a>
       <a *ngIf="userService.getUserRole===2" class="nav-item nav-link" [routerLink]="'/edit_film/-1'"
-        routerLinkActive="active">Добавить фильм</a>
+         routerLinkActive="active">Добавить фильм</a>
       <a *ngIf="userService.getUserRole===1" class="nav-item nav-link" [routerLink]="'/edit_film/0'"
-        routerLinkActive="active">Добавить заказ</a>
-      <a *ngIf="userService.getUserRole>1" class="nav-item nav-link" [routerLink]="'/requests'" routerLinkActive="active">
+         routerLinkActive="active">Добавить заказ</a>
+      <a *ngIf="userService.getUserRole>1" class="nav-item nav-link" [routerLink]="'/requests'"
+         routerLinkActive="active">
         Запросы на добавление фильма</a>
       <a *ngIf="userService.getUserRole===-1" class="nav-item nav-link" [routerLink]="'/register'"
-        routerLinkActive="active">Зарегистрироваться</a>
+         routerLinkActive="active">Зарегистрироваться</a>
       <a *ngIf="userService.getUserRole===-1" class="nav-item nav-link" [routerLink]="'/login'"
-        routerLinkActive="active">Войти</a>
+         routerLinkActive="active">Войти</a>
       <a *ngIf="userService.getUserRole>-1" class="nav-item nav-link" [routerLink]="'/login'"
-        routerLinkActive="active" (click)="onLogOut()">Выйти</a>
+         routerLinkActive="active" (click)="onLogOut()">Выйти</a>
     </div>
   </div>
 </nav>

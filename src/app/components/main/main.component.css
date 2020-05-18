@@ -2,6 +2,14 @@
   padding: 15px 15px 2px 15px;
 }
 
-.genre{
+.label{
   padding: 0px 15px;
+}
+
+.select{
+ width: 200px;
+}
+
+.param{
+  margin: 0 15px;
 }
